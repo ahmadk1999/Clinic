@@ -1,0 +1,104 @@
+﻿@model IEnumerable<Clinic.Models.Patient>
+
+@{
+    ViewData["Title"] = "index";
+}
+
+<h1>index</h1>
+<h2>search</h2>
+<p>
+
+    @using (Html.BeginForm("Index", "PatientSignup", FormMethod.Get))
+    {
+        <input type="text" name="Search" placeholder="enter patient name..." />
+        <input type="submit" name="submit" value="Search" />
+    }
+
+</p>
+
+<p>
+    <a asp-action="create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+
+            <th>
+                @Html.DisplayNameFor(model => model.FirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Birthday)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Gender)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PhoneNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Address)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RegisterationDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SSN)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.patientId)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.FirstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LastName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Birthday)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Gender)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PhoneNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Address)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RegisterationDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SSN)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.patientId)
+                </td>
+                <td>
+
+                    <a asp-action="edit" asp-route-id="@item.patientId">edit</a> |
+                    <a asp-action="details" asp-route-id="@item.patientId">details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.patientId">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
