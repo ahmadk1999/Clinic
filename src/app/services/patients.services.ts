@@ -11,9 +11,9 @@ export class PatientsService{
     patientAdded = new Subject<Patient>();
 
     private patients = [
-        new Patient( 'Joe', 'E', 24),
-        new Patient( 'Lee', 'A', 24),
-        new Patient( 'Sara', 'C', 24)
+        new Patient(1, 'Joe', 'E', 24),
+        new Patient(2, 'Lee', 'A', 24),
+        new Patient(3,'Sara', 'C', 24)
       ]
 
     constructor(private logService:LoggingService){

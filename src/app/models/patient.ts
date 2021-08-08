@@ -1,6 +1,7 @@
 export class Patient{
     
-    constructor(public firstName:string, public lastName:string,public age:number){
+   
+    constructor(public  id:number,public firstName:string, public lastName:string,public age:number){
     
         
 }

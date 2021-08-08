@@ -18,7 +18,7 @@ export class PatientsHeaderComponent implements OnInit {
 
   
   addPatient(firstName:HTMLInputElement, lastName:HTMLInputElement, age:HTMLInputElement){
-    this.patientsAdded.emit(new Patient(firstName.value, lastName.value, +age.value));
+    this.patientsAdded.emit(new Patient(0,firstName.value, lastName.value, +age.value));
     //console.log(`Patient was added`);
   //  this.firstName = '';
 

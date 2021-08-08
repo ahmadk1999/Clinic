@@ -1,4 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { interval, Subscription, } from 'rxjs';
 import {filter, map} from 'rxjs/operators';
 
@@ -11,7 +12,7 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   private subscription:Subscription;
 
-  constructor() { }
+  constructor(private router:Router) { }
 
   ngOnInit(): void {
     this.subscription =  interval(1000).pipe(
@@ -36,5 +37,9 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
   ngOnDestroy(){
     this.subscription.unsubscribe();
+  }
+
+  onLoadPatients(){
+      this.router.navigate(['/patients']);
   }
 }
