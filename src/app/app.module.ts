@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
@@ -10,12 +10,11 @@ import { PatientsHeaderComponent } from './patients-header/patients-header.compo
 import { HighlightDirective } from './directives/highlight.directive';
 import { AppHiddenDirective } from './directives/app-hidden.directive';
 import { ShortenPipe } from './pipes/shorten.pipe';
-import { LoggingService } from './services/logging.service';
 import { HomeComponent } from './home/home.component';
-import { Route, RouterModule } from '@angular/router';
 import { PatientDetailComponent } from './patient-detail/patient-detail.component';
 import { PatientEditComponent } from './patient-edit/patient-edit.component';
 import { AppRoutingModule } from './app.routing.module';
+import { PatientCreateComponent } from './patient-create/patient-create.component';
 
 
 @NgModule({
@@ -30,12 +29,14 @@ import { AppRoutingModule } from './app.routing.module';
     ShortenPipe,
     HomeComponent,
     PatientDetailComponent,
-    PatientEditComponent
+    PatientEditComponent,
+    PatientCreateComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
     //RouterModule.forRoot(appRoutes)
   ],
   providers: [],

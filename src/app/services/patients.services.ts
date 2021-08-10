@@ -27,6 +27,11 @@ export class PatientsService{
     }
 
     getPatients(){
+        // let results: Patient[] = []; 
+        // const myClonedArray  = Object.assign(results, this.patients);
+        // return  myClonedArray;
+
         return this.patients;
     }
+
 }

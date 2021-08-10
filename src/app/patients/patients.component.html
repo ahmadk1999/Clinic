@@ -7,10 +7,15 @@
 <hr/>
 <br/> -->
 
-
-<h3>Patients</h3>
+<br/>
 <div class="row">
-    <div class="col col-3">
+    <div class="col col-12">
+        <button class="btn btn-primary btn-sm" (click)="onAddPatient()">Add Patient</button>
+    
+    </div>
+
+    <br/><br/>
+    <div class="col col-2 ">
         <!-- <app-patients-header (patientsAdded)="addPatient($event)"></app-patients-header>
 
         <br/> -->
@@ -20,7 +25,7 @@
         </app-patient-item>
 
     </div>
-    <div class="col col-9">
+    <div class="col col-9 offset-1">
         <router-outlet></router-outlet>
     </div>
 </div>

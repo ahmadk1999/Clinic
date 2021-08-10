@@ -1,4 +1,6 @@
+import { Route } from '@angular/compiler/src/core';
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 import { Patient } from 'src/app/models/patient';
 import { LoggingService } from '../services/logging.service';
 import { PatientsService } from '../services/patients.services';
@@ -20,7 +22,7 @@ export class PatientsComponent implements OnInit {
   message:string ="Pipe test testing";
   currentDate:Date = new Date();
 
-  constructor(private patientService:PatientsService) { 
+  constructor(private router:Router, private patientService:PatientsService) { 
     this.patientName = "Maria";
     // this.patients = ['Joe', 'Lee', 'Sara'];
  
@@ -41,5 +43,9 @@ export class PatientsComponent implements OnInit {
 
   addPatient(data:Patient){
        this.patientService.addPatient(data);
+  }
+
+  onAddPatient(){
+    this.router.navigate(['/patients/create'])
   }
 }
