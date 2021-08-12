@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Observable, of } from 'rxjs';
-import { delay } from 'rxjs/operators';
 import { Patient } from '../models/patient';
 import { PatientsService } from '../services/patients.services';
 
@@ -30,12 +28,11 @@ export class PatientCreateComponent implements OnInit {
   }
 
   onSubmit(){
-    console.log(this.createForm);
-
     if(!this.createForm.valid)
       return;
 
-    let patient = new Patient(this.patientService.getPatients().length + 1, this.createForm.value.fullName.firstName, this.createForm.value.fullName.lastName,  this.createForm.value.age);
+    let patient = new Patient(this.patientService.patients.length + 1, this.createForm.value.fullName.firstName, this.createForm.value.fullName.lastName,  this.createForm.value.age);
+
     patient.email = this.createForm.value.email;
     patient.gender = this.createForm.value.gender;
 

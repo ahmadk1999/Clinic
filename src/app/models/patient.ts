@@ -1,5 +1,5 @@
 export class Patient {
-
+    key:string;
     email: string;
     gender: string;
 

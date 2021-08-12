@@ -11,47 +11,38 @@ import { PatientsService } from '../services/patients.services';
 })
 export class PatientEditComponent implements OnInit {
 
-  patient:Patient;
+  patient: Patient;
 
   @ViewChild('editForm')
-  editForm:NgForm;
+  editForm: NgForm;
 
-  genders = ["Male", "Femail"]
-  constructor(private route:ActivatedRoute, private patientService:PatientsService) { }
+  genders = ["Male", "Female"]
+  constructor(private route: ActivatedRoute, private patientService: PatientsService) { }
 
   ngOnInit(): void {
-    
-    this.route.params.subscribe((params:Params)=>{
-      this.patient = this.patientService.getPatients().find(p => p.id == +params['id'] ) as Patient;
-      //  console.log(this.patient);
-    })    
 
-  //     this.editForm.setValue({
-  //   firstName:'1',
-  //   lastName:'',
-  //   email: '',
-  //   age:0,
-  //   gender: 'Male'
-  // });
+    this.route.params.subscribe((params: Params) => {
+      this.patient = this.patientService.patients.find(p => p.id == +params['id']) as Patient
+    })
   }
 
-  onSubmit(editForm:NgForm){
+  onSubmit(editForm: NgForm) {
 
-    if(!editForm.valid)
+    if (!editForm.valid)
       return;
-    console.log(editForm.form);
 
-   this.editForm.reset()
-  // this.editForm.setValue({
-  //   firstName:'1',
-  //   lastName:'',
-  //   email: '',
-  //   gender: 'Male'
-  // });
+    this.patientService.updatePatient(editForm.value)
 
-  this.editForm.form.patchValue({
-    gender:'Male'
-  })
+    this.editForm.reset()
+    // this.editForm.setValue({
+    //   firstName:'1',
+    //   lastName:'',
+    //   email: '',
+    //   gender: 'Male'
+    // });
+
+    this.editForm.form.patchValue({
+      gender: 'Male'
+    })
   }
-
 }

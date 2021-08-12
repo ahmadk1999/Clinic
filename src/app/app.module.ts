@@ -15,7 +15,8 @@ import { PatientDetailComponent } from './patient-detail/patient-detail.componen
 import { PatientEditComponent } from './patient-edit/patient-edit.component';
 import { AppRoutingModule } from './app.routing.module';
 import { PatientCreateComponent } from './patient-create/patient-create.component';
-
+import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http'
+import { AuthInterceptor } from './interceptors/auth-interceptor';
 
 @NgModule({
   declarations: [
@@ -36,10 +37,13 @@ import { PatientCreateComponent } from './patient-create/patient-create.componen
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
     //RouterModule.forRoot(appRoutes)
   ],
-  providers: [],
+  providers: [ 
+    {provide:HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi:true}
+],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

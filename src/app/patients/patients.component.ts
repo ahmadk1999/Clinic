@@ -1,3 +1,4 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Route } from '@angular/compiler/src/core';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
@@ -11,21 +12,23 @@ import { PatientsService } from '../services/patients.services';
   styleUrls: ['./patients.component.css']
 })
 export class PatientsComponent implements OnInit {
-  firstName:string = 'Max'
-  patientName:string;
-  isWhite:boolean = true;
-  showMessage:boolean = true;
+  firstName: string = 'Max'
+  patientName: string;
+  isWhite: boolean = true;
+  showMessage: boolean = true;
   patients: Patient[];
   showDirective = true;
   @ViewChild('firstName')
-  fName:string ='';
-  message:string ="Pipe test testing";
-  currentDate:Date = new Date();
+  fName: string = '';
+  message: string = "Pipe test testing";
+  currentDate: Date = new Date();
+  isLoading = false;
+  error: string;
 
-  constructor(private router:Router, private patientService:PatientsService) { 
+  constructor(private router: Router, private patientService: PatientsService) {
     this.patientName = "Maria";
     // this.patients = ['Joe', 'Lee', 'Sara'];
- 
+
 
     setTimeout(() => {
       this.showMessage = false;
@@ -33,19 +36,32 @@ export class PatientsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.patients = this.patientService.getPatients();
+    this.isLoading = true;
+
+    this.patientService.getPatients()
+      .subscribe(response => {
+        this.isLoading = false;
+        this.patients = response;
+      },
+        (error: HttpErrorResponse) => {
+          this.error = error.message;
+        });;
   }
 
-  getFullName(){
+  getFullName() {
     return this.patientName;
   }
 
 
-  addPatient(data:Patient){
-       this.patientService.addPatient(data);
+  addPatient(data: Patient) {
+    this.patientService.addPatient(data);
   }
 
-  onAddPatient(){
+  onAddPatient() {
     this.router.navigate(['/patients/create'])
+  }
+
+  onClearPatients() {
+    this.patientService.clearPatients();
   }
 }

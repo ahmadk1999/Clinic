@@ -20,7 +20,8 @@ export class PatientDetailComponent implements OnInit {
        let allowEdit = this.route.snapshot.queryParams['allowEdit'];
 
       this.route.params.subscribe((params:Params)=>{
-        this.patient = this.patientService.getPatients().find(p => p.id == +params['id'] ) as Patient;
+        this.patient = this.patientService.patients.find(p => p.id == +params['id'] ) as Patient;
+        
       })
     
   }
