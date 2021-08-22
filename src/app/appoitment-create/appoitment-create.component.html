@@ -1,0 +1,40 @@
+<div class="row">
+    <div class="col col-12">
+        <form [formGroup]="createForm" (ngSubmit)="onSubmit()">
+
+          <div class="form-group">
+            <label for="patientName">patients</label>
+            <select formControlName="patientName" class="form-control" required>
+                <option *ngFor="let patients of patients" [value]="patients.firstName" >{{patients.firstName}}</option>
+                
+            </select>
+            
+            <label for="doctorName">doctors</label>
+            <select formControlName="doctorName" class="form-control" required>
+                <option *ngFor="let Doctor of Doctor" [value]="Doctor.firstName" >{{Doctor.firstName}}</option>
+                
+            </select>
+            
+        </div>
+
+
+        <div class="form-group">
+            <label for="description">brief Description</label>
+            <input type="description" class="form-control" formControlName="description" >
+        </div>
+
+        <label for="date">Date:</label>
+        <input type="datetime-local" id="date" name="date"class="form-control" formControlName="date" min="2021-08-22" required>
+
+    
+        <br/>
+        <button class="btn btn-primary btn-sm" type="submit" [disabled]="!createForm.valid">Submit</button>
+    </form>
+    
+</div>
+</div>
+        
+        
+      
+      
+    

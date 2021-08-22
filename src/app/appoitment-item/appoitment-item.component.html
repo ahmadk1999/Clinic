@@ -1,0 +1,14 @@
+<div class="card"style="width: 18rem;">
+    <div class="card-body">
+        <label>AppointmentNumber:</label>
+            <h3>{{Appoitment.id}}</h3>
+        <a [routerLink]="['/appoitment/', Appoitment.id]" [queryParams]="{allowEdit: true}">
+            
+    
+        
+         <div>{{Appoitment.date}}</div>
+        
+        </a>
+         </div>
+</div>
+<br/>

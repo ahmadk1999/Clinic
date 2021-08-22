@@ -1,0 +1,28 @@
+<div class="row">
+   <label>First Name:</label>
+    <div class="col col-10">
+        <p style="color: red">{{Doctor.firstName}}</p>
+    </div>
+
+    
+    <label>Last Name:</label>
+    <div class="col col-10">
+        <p style="color: red">{{Doctor.lastName}}</p>
+    </div>
+     <label>email:</label>
+    
+    <div class="col col-10">
+        <p style="color: red">{{Doctor.email}}</p>
+    </div>
+    <label>specialization:</label>
+    <div class="col col-10">
+        <p style="color: red">{{Doctor.specialization}}</p>
+    </div>
+
+</div>
+
+
+
+<a class="btn btn-primary bt-sm" (click)="onEdit(Doctor.id)">Edit</a>
+<br/>
+<br/>

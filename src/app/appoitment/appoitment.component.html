@@ -1,0 +1,32 @@
+<h3>Appoitments</h3>
+
+
+
+<br/>
+<div class="row">
+    <p class="alert-danger">{{error}}</p>
+    <div class="col col-12" *ngIf=isLoading>
+        <span>Loading...</span>
+    </div>
+    <div class="col col-12">
+        <button class="btn btn-primary btn-sm" (click)="onAddappoitment()">Add Appoinment</button>
+    
+    </div>
+
+    <br/><br/>
+    <div class="col col-2 ">
+       
+
+        <app-appoitment-item *ngFor="let item of Appoitment" [appoitmentItem]="item">
+            
+        </app-appoitment-item>
+
+    </div>
+    <div class="col col-9 offset-1">
+     <router-outlet></router-outlet>
+    </div>
+    <div class="col col-12"><button class="btn btn-danger btn-sm" (click)="onClearAppoitment()">Clear</button></div>
+    
+</div>
+
+

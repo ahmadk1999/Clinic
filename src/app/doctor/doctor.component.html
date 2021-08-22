@@ -1,2 +1,29 @@
 <h3>Doctors</h3>
-<p>{{message}}</p>
+
+<br/>
+<div class="row">
+    <p class="alert-danger">{{error}}</p>
+    <div class="col col-12" *ngIf=isLoading>
+        <span>Loading...</span>
+    </div>
+    <div class="col col-12">
+        <button class="btn btn-primary btn-sm" (click)="onAddDoctor()">Add Doctor</button>
+    
+    </div>
+
+    <br/><br/>
+    <div class="col col-2 ">
+       
+
+        <app-doctor-item *ngFor="let item of Doctor" [doctorItem]="item">
+            
+        </app-doctor-item>
+
+    </div>
+    <div class="col col-9 offset-1">
+        <router-outlet></router-outlet>
+    </div>
+        <div class="col col-12"><button class="btn btn-danger btn-sm" (click)="onCleardoctors()">Clear</button></div>
+    
+</div>
+

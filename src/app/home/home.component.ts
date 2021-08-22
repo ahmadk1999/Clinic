@@ -9,6 +9,7 @@ import {filter, map} from 'rxjs/operators';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit, OnDestroy {
+  imageurl="https://image.freepik.com/free-vector/doctor-clinic-illustration_1270-69.jpg"
 
   private subscription:Subscription;
 
@@ -42,4 +43,11 @@ export class HomeComponent implements OnInit, OnDestroy {
   onLoadPatients(){
       this.router.navigate(['/patients']);
   }
+  onLoadDoctors(){
+    this.router.navigate(['/doctor']);
+}
+onLoadAppoitment(){
+  this.router.navigate(['/appoitment']);
+
+}
 }

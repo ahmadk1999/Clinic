@@ -17,6 +17,17 @@ import { AppRoutingModule } from './app.routing.module';
 import { PatientCreateComponent } from './patient-create/patient-create.component';
 import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http'
 import { AuthInterceptor } from './interceptors/auth-interceptor';
+import { DoctorCreateComponent } from './doctor-create/doctor-create.component';
+import { DoctorDetailComponent } from './doctor-detail/doctor-detail.component';
+import { DoctorEditComponent } from './doctor-edit/doctor-edit.component';
+import { DoctorItemComponent } from './doctor-item/doctor-item.component';
+import { RouterModule } from '@angular/router';
+import { AppoitmentComponent } from './appoitment/appoitment.component';
+import { appoitmentItemComponent } from './appoitment-item/appoitment-item.component';
+import { AppoitmentCreateComponent } from './appoitment-create/appoitment-create.component';
+import { AppoitmentEditComponent } from './appoitment-edit/appoitment-edit.component';
+import { AppoitmentDetailsComponent } from './appoitment-details/appoitment-details.component';
+
 
 @NgModule({
   declarations: [
@@ -31,15 +42,27 @@ import { AuthInterceptor } from './interceptors/auth-interceptor';
     HomeComponent,
     PatientDetailComponent,
     PatientEditComponent,
-    PatientCreateComponent
+    PatientCreateComponent,
+    DoctorCreateComponent,
+    DoctorDetailComponent,
+    DoctorEditComponent,
+    DoctorItemComponent,
+    AppoitmentComponent,
+    appoitmentItemComponent,
+    AppoitmentCreateComponent,
+    AppoitmentEditComponent,
+    AppoitmentDetailsComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
-    //RouterModule.forRoot(appRoutes)
+    HttpClientModule,
+    RouterModule.forRoot([
+      {path:'appoitment/:create',component:AppoitmentCreateComponent}
+    ])
+    
   ],
   providers: [ 
     {provide:HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi:true}
@@ -47,3 +70,7 @@ import { AuthInterceptor } from './interceptors/auth-interceptor';
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+function appRoutes(appRoutes: any): any[] | import("@angular/core").Type<any> | import("@angular/core").ModuleWithProviders<{}> {
+  throw new Error('Function not implemented.');
+}
+

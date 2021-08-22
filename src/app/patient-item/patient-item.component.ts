@@ -13,7 +13,6 @@ export class PatientItemComponent implements OnInit, OnDestroy, OnChanges {
     patient: Patient; 
 
   constructor() {
-    this.patient = new Patient(0,'Joe', 'E',31);
    }
 
   ngOnInit(): void {

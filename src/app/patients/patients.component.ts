@@ -26,8 +26,7 @@ export class PatientsComponent implements OnInit {
   error: string;
 
   constructor(private router: Router, private patientService: PatientsService) {
-    this.patientName = "Maria";
-    // this.patients = ['Joe', 'Lee', 'Sara'];
+    
 
 
     setTimeout(() => {
@@ -63,5 +62,6 @@ export class PatientsComponent implements OnInit {
 
   onClearPatients() {
     this.patientService.clearPatients();
+    this.router.navigate(['/home'])
   }
 }

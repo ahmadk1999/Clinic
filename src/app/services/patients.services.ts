@@ -21,6 +21,7 @@ export class PatientsService{
     }
 
     addPatient(data:Patient){
+
         this.httpClient.post(`${environment.WebApiUrl}/patients.json`, data,
         {
             headers: new HttpHeaders().set('token', 'xyz')

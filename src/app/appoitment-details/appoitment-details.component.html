@@ -1,0 +1,28 @@
+<div class="row">
+    <label>PatientName:</label>
+     <div class="col col-10">
+         <p style="color: red">{{Appoitment.patientName}}</p>
+     </div>
+ 
+     
+     <label>DoctorName:</label>
+     <div class="col col-10">
+         <p style="color: red">{{Appoitment.doctorName}}</p>
+     </div>
+      <label>Date-time:</label>
+     
+     <div class="col col-10">
+         <p style="color: red">{{Appoitment.date}}</p>
+     </div>
+     <label>Brief-Description:</label>
+     <div class="col col-10">
+         <p style="color: red">{{Appoitment.description}}</p>
+     </div>
+ 
+ </div>
+ 
+ 
+ 
+ <a class="btn btn-primary bt-sm" (click)="onEdit(Appoitment.id)">Edit</a>
+ <br/>
+ <br/>

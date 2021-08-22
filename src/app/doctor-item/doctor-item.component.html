@@ -1,0 +1,19 @@
+<div class="card" style="width: 18rem;">
+    
+    <div class="card-body">
+        <label>DoctorID:</label>
+            <h3>{{Doctor.id}}</h3>
+        <a [routerLink]="['/doctor/', Doctor.id]" [queryParams]="{allowEdit: true}">
+            
+<br>
+
+            <label>Doctor:</label>
+            <h3>{{Doctor.fullName}}</h3>
+        </a>
+        
+        
+        
+        
+         </div>
+</div>
+<br/>

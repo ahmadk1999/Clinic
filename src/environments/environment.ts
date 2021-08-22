@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  WebApiUrl: 'https://angulartraining-86af6-default-rtdb.firebaseio.com/'
+  WebApiUrl: 'https://fir-demo-1c8a2-default-rtdb.firebaseio.com/'
 };
 
 /*
