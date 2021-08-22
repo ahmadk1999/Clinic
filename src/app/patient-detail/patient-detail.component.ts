@@ -29,5 +29,6 @@ export class PatientDetailComponent implements OnInit {
   onEdit(id:number){
     this.router.navigate(['/patients', id, 'edit' ], {queryParams: {allowEdit: true}});
   }
+  
 
 }
